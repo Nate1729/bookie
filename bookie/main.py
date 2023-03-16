@@ -3,7 +3,7 @@ import sys, csv
 from typing import Optional
 
 # bookie imports
-import summary, arg_parser, models
+from bookie import summary, arg_parser, models
 
 
 def process_file(file_path: str) -> Optional[list[models.Receipt]]:

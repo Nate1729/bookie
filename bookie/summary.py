@@ -1,4 +1,4 @@
-import models, currency
+from bookie import models, currency
 
 def calculate_total(receipts: list[models.Receipt]) -> int:
     """Sum the amounts over all reciepts"""
