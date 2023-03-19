@@ -4,7 +4,7 @@ from datetime import datetime
 
 from bookie import currency
 
-DATE_FMT = '%Y-%m-%d %H:%M:%S'
+DATE_FMT = '%Y-%m-%d %H:%M'
 
 class MissingDataException(Exception):
     pass
