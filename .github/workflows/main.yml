@@ -37,7 +37,7 @@ jobs:
       - name: Run tests
         run: |
           source .venv/bin/activate
-          poetry run pytest -v
+          poetry run pytest -v --cov
       - name: Upload results to Codecov
         uses: codecov/codecov-action@v3
         env: 
