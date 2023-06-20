@@ -44,4 +44,8 @@ jobs:
       - name: Upload results to Codecov
         uses: codecov/codecov-action@v3
   mypy:
-    run: poetry run mypy bookie
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run mypy
+        run: poetry run mypy bookie
