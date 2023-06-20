@@ -34,6 +34,10 @@ jobs:
         run: poetry install --no-interaction --no-root
       - name: Install library
         run: poetry install --no-interaction
-      - run: |
+      - name: Run tests
+        run: |
           source .venv/bin/activate
           poetry run pytest -v
+      - name: Upload results to Codecov
+        uses: codecov/codecov-action@v3
+        env: CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
