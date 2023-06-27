@@ -1,16 +1,20 @@
 from typing import Optional
-from enum import Enum 
+from enum import Enum
+
 
 class InputError(Exception):
     pass
 
+
 class FileExtensions(str, Enum):
-    CSV = 'csv'
+    CSV = "csv"
+
 
 def get_file_extension(file_name: str) -> Optional[str]:
-    if '.' not in file_name:
+    if "." not in file_name:
         return None
-    return file_name.split('.')[-1]
+    return file_name.split(".")[-1]
+
 
 def validate_arguments(args: list[str]) -> str:
     """Validates command line arguments.
@@ -29,4 +33,3 @@ def validate_arguments(args: list[str]) -> str:
         raise InputError("The file must be a csv file!")
 
     return file_name
-

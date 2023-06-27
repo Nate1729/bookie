@@ -40,7 +40,7 @@ jobs:
           poetry run pytest -v --cov=bookie --cov-report=xml
       - name: Upload results to Codecov
         uses: codecov/codecov-action@v3
-  mypy:
+  style:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -68,3 +68,5 @@ jobs:
         run: poetry install --no-interaction
       - name: Run mypy
         run: poetry run mypy bookie
+      - name: Run black
+        run: poetry run black bookie/ tests/

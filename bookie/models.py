@@ -4,16 +4,19 @@ from datetime import datetime
 
 from bookie import currency
 
-DATE_FMT = '%Y-%m-%d %H:%M'
+DATE_FMT = "%Y-%m-%d %H:%M"
+
 
 class MissingDataException(Exception):
     pass
+
 
 @dataclass
 class Receipt:
     date: datetime
     vendor: str
     amount_in_cents: int
+
 
 def receipt_from_dict(data: dict[str, Any]) -> Receipt:
     """From a dictionary construct the
@@ -26,12 +29,9 @@ def receipt_from_dict(data: dict[str, Any]) -> Receipt:
         raise MissingDataException("vendor not found!")
     if (amount := data.get("amount")) is None:
         raise MissingDataException("amount not found!")
-    
 
     return Receipt(
         date=datetime.strptime(date, DATE_FMT),
         vendor=vendor,
-        amount_in_cents=currency.convert_str_to_cents(amount)
+        amount_in_cents=currency.convert_str_to_cents(amount),
     )
-
-
