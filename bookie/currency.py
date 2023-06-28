@@ -34,7 +34,8 @@ def convert_cents_to_str(
 
     if cents < 10:
         # Need to pad cents for formatting
-        cents = f'{0}{cents}'
+        cents = f"{0}{cents}"
 
-
-    return currency_marker + _apply_sign(f"{dollars}{cent_separator}{cents}", is_negative)
+    return currency_marker + _apply_sign(
+        f"{dollars}{cent_separator}{cents}", is_negative
+    )

@@ -13,8 +13,10 @@ def find_purchases(receipts: list[models.Receipt]) -> list[models.Receipt]:
 def find_returns(receipts: list[models.Receipt]) -> list[models.Receipt]:
     return [r for r in receipts if r.amount_in_cents < 0]
 
+
 def print_formatted_line(label: str, value: int | str) -> None:
     print(f"{label:<10}{value:>8}")
+
 
 def summarize(receipts: list[models.Receipt]) -> None:
     purchases = find_purchases(receipts)
@@ -28,7 +30,7 @@ def summarize(receipts: list[models.Receipt]) -> None:
     print_formatted_line("Purchases", len(purchases))
     print_formatted_line("Total", currency.convert_cents_to_str(purchase_total))
 
-    print('\n')
+    print("\n")
 
     print_formatted_line("Returns", len(returns))
     print_formatted_line("Total", currency.convert_cents_to_str(return_total))
