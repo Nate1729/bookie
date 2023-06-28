@@ -9,7 +9,20 @@ came from me not wanting to use spreadsheets to have to handle all of my data.
 
 # How to Run
 Pull the repository down and run this command
-```shell
+```bash
 poetry install
 poetry run python bookie/main.py
+```
+
+# Running Test Suite
+Make sure you have already run `poetry install` so `pytest` is installed.
+Assuming you have already done that, you can run
+```bash
+poetry run pytest
+```
+
+If you would like to get test coverage as well you will need to add
+the `--cov` flag like this
+```bash
+poetry run pytest --cov=bookie
 ```
