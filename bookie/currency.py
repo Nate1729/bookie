@@ -32,9 +32,10 @@ def convert_cents_to_str(
     dollars = cents // 100  # integer division
     cents = cents % 100
 
-    if cents < 10:
+    cents_string = str(cents)
+    if len(cents_string) == 1:
         # Need to pad cents for formatting
-        cents = f"{0}{cents}"
+        cents_string = f'{0}{cents_string}'
 
     return currency_marker + _apply_sign(
         f"{dollars}{cent_separator}{cents}", is_negative
