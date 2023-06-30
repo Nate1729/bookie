@@ -11,8 +11,10 @@ def process_file(file_path: str) -> list[models.Receipt]:
         entries = [models.receipt_from_dict(line) for line in csv.DictReader(f)]
         return entries
 
-def _get_cli_args()-> list[str]:
+
+def _get_cli_args() -> list[str]:
     return sys.argv
+
 
 def main():
     try:
@@ -24,5 +26,6 @@ def main():
     data = process_file(file_name)
     summary.summarize(data)
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     main()

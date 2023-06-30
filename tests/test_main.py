@@ -9,11 +9,12 @@ import pytest
 
 from bookie import main, arg_parser
 
+
 class TestProcessFile(unittest.TestCase):
     def test_file_does_not_exist(self) -> None:
         # Arrange
-        file_path = 'foo.csv'
-    
+        file_path = "foo.csv"
+
         # Act / Assert
         self.assertRaises(FileNotFoundError, main.process_file, file_path)
 
@@ -22,19 +23,20 @@ class TestGetCliArgs(unittest.TestCase):
     @mock.patch("bookie.main.sys.argv")
     def pull_args(self, mock_argv) -> None:
         # Arrange
-        mock_argv.return_value = ['one', 'two']
+        mock_argv.return_value = ["one", "two"]
 
         # Act
         result = main._get_cli_args()
 
         # Assert
-        self.assertEqual(result, ['one', 'two'])
-    
+        self.assertEqual(result, ["one", "two"])
+
+
 class TestMain:
     @mock.patch("bookie.main.sys.argv")
     def test_too_few_arguments(self, mock_argv, capsys) -> None:
         # Arrange
-        mock_argv.return_value = ['one']
+        mock_argv.return_value = ["one"]
 
         # Act / Assert
         with pytest.raises((arg_parser.InputError, SystemExit)):
@@ -42,11 +44,11 @@ class TestMain:
 
         stdout, _ = capsys.readouterr()
         assert "There was an issue with the inputs." in stdout
-    
+
     @mock.patch("bookie.main.sys.argv")
     def test_too_many_arguments(self, mock_argv, capsys) -> None:
         # Arrange
-        mock_argv.return_value = ['one', 'two', 'three']
+        mock_argv.return_value = ["one", "two", "three"]
 
         # Act / Assert
         with pytest.raises((arg_parser.InputError, SystemExit)):
@@ -54,14 +56,14 @@ class TestMain:
 
         stdout, _ = capsys.readouterr()
         assert "There was an issue with the inputs." in stdout
-        
+
     @mock.patch("bookie.main._get_cli_args")
     def test_happy_path(self, mock_argv, capsys) -> None:
         # Arrange
-        file = tempfile.NamedTemporaryFile(suffix='.csv')
-        mock_argv.return_value = ['other', file.name]
+        file = tempfile.NamedTemporaryFile(suffix=".csv")
+        mock_argv.return_value = ["other", file.name]
 
-        with open(file.name, 'w') as f:
+        with open(file.name, "w") as f:
             f.write("date,vendor,amount\n")
             f.write("2022-11-20 11:23,Harbor Freight,21.84\n")
             f.write("2022-11-25 10:46,Harbor Freight,-11.22")
