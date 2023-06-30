@@ -35,8 +35,7 @@ def convert_cents_to_str(
     cents_string = str(cents)
     if len(cents_string) == 1:
         # Need to pad cents for formatting
-        cents_string = f'{0}{cents_string}'
-
+        cents_string = f"{0}{cents_string}"
 
     return currency_marker + _apply_sign(
         f"{dollars}{cent_separator}{cents_string}", is_negative
