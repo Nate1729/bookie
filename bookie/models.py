@@ -33,5 +33,5 @@ def receipt_from_dict(data: dict[str, Any]) -> Receipt:
     return Receipt(
         date=datetime.strptime(date, DATE_FMT),
         vendor=vendor,
-        amount_in_cents=currency.convert_str_to_cents(amount),
+        amount_in_cents=currency.convert_dollar_string_to_cents(amount),
     )
