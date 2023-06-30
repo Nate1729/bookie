@@ -12,7 +12,7 @@ def process_file(file_path: str) -> Optional[list[models.Receipt]]:
         return entries
 
 
-if __name__ == "__main__":
+def main():
     try:
         file_name = arg_parser.validate_arguments(sys.argv)
     except arg_parser.InputError as e:
@@ -23,3 +23,6 @@ if __name__ == "__main__":
     if data is None:
         sys.exit(1)
     summary.summarize(data)
+
+if __name__ == '__main__':
+    main()
