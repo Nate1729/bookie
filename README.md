@@ -7,11 +7,25 @@
 Bookie is a bookeeping command line tool. The idea behind this
 came from me not wanting to use spreadsheets to have to handle all of my data.
 
-# How to Run
-Pull the repository down and run this command
+# How to Use
+Pull the repository down and install dependencies
 ```bash
 poetry install
-poetry run python bookie/main.py
+```
+
+You need to have a `.csv` file with all the data in the proper format.
+Proper format means having a header row which _at least_ includes
+- `date` in `yyy-mm-dd HH:MM` format
+- `vendor` in plain-text
+- `amount` positive or negative number
+    - no currency markings
+    - no thousands separator
+    - 2 or 0 decimal places
+    - cents separator is a period `.`.
+
+Lastly to run the command
+```bash
+poetry run bookie/main.py <file_path_to_csv>
 ```
 
 # Running Test Suite
