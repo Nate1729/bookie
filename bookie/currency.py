@@ -1,4 +1,4 @@
-def convert_dollar_string_to_cents(amount: str, cent_separator: str=".") -> int:
+def convert_dollar_string_to_cents(amount: str, cent_separator: str = ".") -> int:
     """Convert a string of currency into dollars.
     Does **NOT** support commas!!
     """
@@ -35,8 +35,7 @@ def convert_cents_to_dollar_string(
     cents_string = str(cents)
     if len(cents_string) == 1:
         # Need to pad cents for formatting
-        cents_string = f'{0}{cents_string}'
-
+        cents_string = f"{0}{cents_string}"
 
     return currency_marker + _apply_sign(
         f"{dollars}{cent_separator}{cents_string}", is_negative

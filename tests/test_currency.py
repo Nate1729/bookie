@@ -2,6 +2,7 @@ import unittest
 
 from bookie import currency
 
+
 class TestConvertDollarStringToCents(unittest.TestCase):
     def test_valid_amount_with_dot(self) -> None:
         # Arrange
@@ -18,7 +19,7 @@ class TestConvertDollarStringToCents(unittest.TestCase):
         amount = "10,20"
 
         # Act
-        result = currency.convert_dollar_string_to_cents(amount, ',')
+        result = currency.convert_dollar_string_to_cents(amount, ",")
 
         # Assert
         self.assertEqual(result, 1020)
@@ -46,6 +47,7 @@ class TestConvertDollarStringToCents(unittest.TestCase):
         # Assert
         self.assertEqual(result, 10_000)
 
+
 class TestApplySign(unittest.TestCase):
     def test_positive_amount(self) -> None:
         # Arrange
@@ -68,6 +70,7 @@ class TestApplySign(unittest.TestCase):
 
         # Assert
         self.assertEqual(result, "(12)")
+
 
 class TestConvertCentsToDollarString(unittest.TestCase):
     def test_less_than_a_dollar(self) -> None:
@@ -109,4 +112,3 @@ class TestConvertCentsToDollarString(unittest.TestCase):
 
         # Assert
         self.assertEqual(result, "$(2121.56)")
-

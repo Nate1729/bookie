@@ -28,7 +28,9 @@ def summarize(receipts: list[models.Receipt]) -> None:
     print("----------------")
 
     print_formatted_line("Purchases", len(purchases))
-    print_formatted_line("Total", currency.convert_cents_to_dollar_string(purchase_total))
+    print_formatted_line(
+        "Total", currency.convert_cents_to_dollar_string(purchase_total)
+    )
 
     print("\n")
 
