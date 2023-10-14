@@ -1,6 +1,6 @@
 # Standard Library
-import sys, csv
-from typing import Optional
+import csv
+import sys
 
 # bookie imports
 from bookie import summary, arg_parser, models
